@@ -19,7 +19,7 @@ app.use(cors());
 app.use(express.json());
 app.use("/api/tasks", tasks);
 
-const port = process.env.PORT || 8000;
+const port = process.env.PORT || 8080;
 
 app.listen(port, () => {
     mongoose.set('strictQuery', false);
