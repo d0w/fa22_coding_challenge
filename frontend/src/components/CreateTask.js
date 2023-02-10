@@ -5,14 +5,22 @@ import { useState } from "react";
 const CreateTask = () => {
   /* CREATE 'CreateTask' COMPONENT */
   const [task, setTask] = useState("");
+  const [buttonText, setButtonText] = useState("Add Task");
 
   const updateTask = (event) => {
     setTask(event.target.value);
   }
 
+  const handleButton = () => {
+    setButtonText("Added");
+    setTimeout(() => {
+      setButtonText("Add Task");
+    }, 1500);
+  }
+
   const save = (event) => {
     event.preventDefault();
-    var entry = {
+    let entry = {
       description: task,
     };
     addTask(entry).then(response => {
@@ -20,6 +28,7 @@ const CreateTask = () => {
     }).catch(e => {
       console.log(e)
     });
+    event.target.reset();
     console.log("Task added")
   }
 
@@ -31,7 +40,7 @@ const CreateTask = () => {
           <input onChange={updateTask} class="form-control" id="exampleInputEmail1" aria-describedby="taskName" placeholder="Enter task name"/>
           <small id="emailHelp" class="form-text text-muted">What will you do today?</small>
         </div>
-        <button type="submit" class="btn btn-primary">Submit</button>
+        <button onClick={handleButton} type="submit">{ buttonText }</button>
       </form>
     </p>
   );

@@ -39,7 +39,7 @@ router.put("/:id", async (req, res) => {
 /* CREATE 'DELETE' REQUEST */
 router.delete("/:id", async (req, res) => {
   try {
-    console.log("Trying to delete")
+    //console.log("Trying to delete")
     const task = await Task.findByIdAndDelete(req.params.id);
     if (!task) { return res.status(404).send("No video found")}
     res.status(200).send("Task Deleted")

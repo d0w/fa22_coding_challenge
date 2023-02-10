@@ -11,7 +11,7 @@ export function addTask(task) {
 
 /* CREATE 'PUT' FUNCTIONS */
 export function changeTask(id, task) {
-  return axios.put(apiUrl + `/${id}`, { task })
+  return axios.put(apiUrl + `/${id}`, task)
 }
 
 /* CREATE 'DELETE' FUNCTIONS */
